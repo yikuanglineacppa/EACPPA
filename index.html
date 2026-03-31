@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EACPPA | 東亞文政和平協會</title>
+    <style>
+        :root {
+            --primary-navy: #1c2a39; /* 穩重、權威 */
+            --gold-accent: #c5a059;  /* 高端、學術 */
+            --light-gray: #f2f2f2;
+            --text-main: #333;
+        }
+        body {
+            font-family: "Noto Serif TC", serif, "Microsoft JhengHei", sans-serif;
+            margin: 0; padding: 0; color: var(--text-main); background: white; line-height: 1.8;
+        }
+        header {
+            border-bottom: 1px solid #ddd; padding: 25px 10%; display: flex; 
+            justify-content: space-between; align-items: center; background: white;
+        }
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary-navy); letter-spacing: 2px; }
+        .logo span { color: var(--gold-accent); }
+        nav a { margin-left: 25px; text-decoration: none; color: #666; font-size: 0.95rem; }
+        
+        .hero { 
+            background-color: var(--primary-navy); color: white; padding: 100px 10% 60px;
+            text-align: center; border-bottom: 8px solid var(--gold-accent);
+        }
+        .hero h1 { font-size: 2.8rem; margin: 0; }
+        .hero p { font-size: 1.2rem; opacity: 0.8; margin-top: 15px; margin-left: auto; margin-right: auto; max-width: 800px; }
+
+        .mission { padding: 80px 15%; text-align: center; }
+        .mission h2 { color: var(--primary-navy); font-size: 2rem; }
+        .mission p { font-size: 1.1rem; color: #555; margin-top: 20px; }
+
+        .focus-areas { background: var(--light-gray); padding: 80px 10%; }
+        .focus-areas h2 { text-align: center; color: var(--primary-navy); font-size: 2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .area-card { background: white; padding: 40px; border: 1px solid #eee; position: relative; }
+        .area-card::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--gold-accent); }
+        .area-card h3 { color: var(--primary-navy); margin-top: 0; }
+        
+        footer { background: var(--primary-navy); color: white; padding: 60px 10%; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: flex-end;}
+        .contact-info h3 { color: var(--gold-accent); margin-bottom: 15px; font-size: 1.2rem; }
+        .contact-info p { margin: 8px 0; opacity: 0.8; }
+        .copyright { opacity: 0.5; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">EACPPA <span>東亞文政和平協會</span></div>
+    <nav>
+        <a href="#about">關於我們</a>
+        <a href="#focus">核心議題</a>
+        <a href="#events">學術倡議</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>以文化連結政治，推動兩岸長久和平</h1>
+    <p>致力於建立民間非官方的政策溝通渠道，透過學術與文化的力量，消弭地域隔閡，共創東亞繁榮穩定。</p>
+</section>
+
+<section id="about" class="mission">
+    <h2>關於我們 / 協會宗旨</h2>
+    <p>「東亞文政和平協會」成立於 2024 年，推進並建立民間非政黨方的政策溝通渠道，透過學術及文化交流，維持兩岸關係穩定、避免誤判。本會專注於政策研究、文化交流及民間信任機制的建立。</p>
+</section>
+
+<section id="focus" class="focus-areas">
+    <h2>核心議題</h2>
+    <div class="grid">
+        <div class="area-card">
+            <h3>政經趨勢研究</h3>
+            <p>分析地緣變遷對供應鏈的影響，提供跨區域企業非公開的風險評估報告。</p>
+        </div>
+        <div class="area-card">
+            <h3>兩岸文教融合</h3>
+            <p>促進學術與藝術人員之間高水平交流，深化雙方在精神層面的連結。</p>
+        </div>
+        <div class="area-card">
+            <h3>民間和平對話</h3>
+            <p>建立第三方中立平台，推動非官方、閉門式的政策探討與對話。</p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="contact-info">
+        <h3>聯繫資訊</h3>
+        <p>業務經理：林逸光</p>
+        <p>聯絡電話：0911488005</p>
+        <p>電子信箱：yikuang.lin.eacppa@gmail.com</p>
+    </div>
+    <div class="copyright">
+        © 2026 East Asia Cultural & Political Peace Association. All Rights Reserved.
+    </div>
+</footer>
+
+</body>
+</html>
