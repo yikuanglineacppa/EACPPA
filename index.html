@@ -6,8 +6,8 @@
     <title>EACPPA | 東亞文政和平協會</title>
     <style>
         :root {
-            --primary-navy: #1c2a39; /* 穩重、權威 */
-            --gold-accent: #c5a059;  /* 高端、學術 */
+            --primary-navy: #1c2a39; 
+            --gold-accent: #c5a059;  
             --light-gray: #f2f2f2;
             --text-main: #333;
         }
@@ -15,36 +15,56 @@
             font-family: "Noto Serif TC", serif, "Microsoft JhengHei", sans-serif;
             margin: 0; padding: 0; color: var(--text-main); background: white; line-height: 1.8;
         }
+        
+        /* 頂部導覽列與分頁按鈕設計 */
         header {
-            border-bottom: 1px solid #ddd; padding: 25px 10%; display: flex; 
+            border-bottom: 1px solid #ddd; padding: 20px 5%; display: flex; 
             justify-content: space-between; align-items: center; background: white;
+            flex-wrap: wrap; 
         }
-        .logo { font-size: 1.6rem; font-weight: bold; color: var(--primary-navy); letter-spacing: 2px; }
+        .logo { font-size: 1.4rem; font-weight: bold; color: var(--primary-navy); letter-spacing: 1px; }
         .logo span { color: var(--gold-accent); }
-        nav a { margin-left: 25px; text-decoration: none; color: #666; font-size: 0.95rem; }
         
-        .hero { 
-            background-color: var(--primary-navy); color: white; padding: 100px 10% 60px;
-            text-align: center; border-bottom: 8px solid var(--gold-accent);
+        nav { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 5px; }
+        .tab-button {
+            background: none; border: none; color: #666; font-size: 0.95rem; 
+            cursor: pointer; padding: 8px 12px; 
+            font-family: inherit; font-weight: bold; transition: 0.3s;
+            border-bottom: 3px solid transparent;
         }
-        .hero h1 { font-size: 2.8rem; margin: 0; }
-        .hero p { font-size: 1.2rem; opacity: 0.8; margin-top: 15px; margin-left: auto; margin-right: auto; max-width: 800px; }
+        .tab-button:hover { color: var(--primary-navy); }
+        .tab-button.active { color: var(--primary-navy); border-bottom: 3px solid var(--gold-accent); }
 
-        .mission { padding: 80px 15%; text-align: center; }
-        .mission h2 { color: var(--primary-navy); font-size: 2rem; }
-        .mission p { font-size: 1.1rem; color: #555; margin-top: 20px; }
+        /* 分頁內容區塊隱藏與顯示 */
+        .tab-content { display: none; animation: fadeIn 0.5s; min-height: 60vh; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .focus-areas { background: var(--light-gray); padding: 80px 10%; }
-        .focus-areas h2 { text-align: center; color: var(--primary-navy); font-size: 2rem; margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .area-card { background: white; padding: 40px; border: 1px solid #eee; position: relative; }
-        .area-card::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--gold-accent); }
-        .area-card h3 { color: var(--primary-navy); margin-top: 0; }
+        /* 各區塊樣式 */
+        .hero { background-color: var(--primary-navy); color: white; padding: 80px 10% 60px; text-align: center; border-bottom: 8px solid var(--gold-accent); }
+        .hero h1 { font-size: 2.5rem; margin: 0; line-height: 1.3; }
+        .hero p { font-size: 1.1rem; opacity: 0.8; margin-top: 15px; max-width: 800px; margin-left: auto; margin-right: auto; }
         
-        footer { background: var(--primary-navy); color: white; padding: 60px 10%; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: flex-end;}
-        .contact-info h3 { color: var(--gold-accent); margin-bottom: 15px; font-size: 1.2rem; }
-        .contact-info p { margin: 8px 0; opacity: 0.8; }
-        .copyright { opacity: 0.5; font-size: 0.8rem; }
+        .section-padding { padding: 60px 10%; }
+        h2 { color: var(--primary-navy); font-size: 2rem; text-align: center; margin-bottom: 40px;}
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .area-card { background: var(--light-gray); padding: 30px; border-left: 5px solid var(--gold-accent); }
+        .area-card h3 { color: var(--primary-navy); margin-top: 0; }
+
+        /* 專案與報告特定樣式 */
+        .project-box { border: 1px solid #ddd; padding: 30px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);}
+        .project-status { display: inline-block; background: var(--gold-accent); color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 10px;}
+        .locked-status { background: #888; }
+        
+        .report-item { border-bottom: 1px dashed #ccc; padding: 20px 0; }
+        .report-item h4 { margin: 0 0 10px 0; color: var(--primary-navy); font-size: 1.2rem; }
+        .report-item p { margin: 0; font-size: 0.95rem; color: #666; }
+
+        footer { background: var(--primary-navy); color: white; padding: 40px 10%; font-size: 0.9rem; text-align: center; }
+        .contact-info h3 { color: var(--gold-accent); margin-bottom: 10px; font-size: 1.2rem; }
+        .contact-info p { margin: 5px 0; opacity: 0.8; }
+        .copyright { margin-top: 30px; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -52,39 +72,100 @@
 <header>
     <div class="logo">EACPPA <span>東亞文政和平協會</span></div>
     <nav>
-        <a href="#about">關於我們</a>
-        <a href="#focus">核心議題</a>
-        <a href="#events">學術倡議</a>
+        <button class="tab-button active" onclick="openTab(event, 'Home')">協會首頁</button>
+        <button class="tab-button" onclick="openTab(event, 'About')">關於我們</button>
+        <button class="tab-button" onclick="openTab(event, 'Projects')">專案計畫</button>
+        <button class="tab-button" onclick="openTab(event, 'Insights')">智庫觀點</button>
+        <button class="tab-button" onclick="openTab(event, 'Network')">合作網絡</button>
     </nav>
 </header>
 
-<section class="hero">
-    <h1>以文化連結政治，推動兩岸長久和平</h1>
-    <p>致力於建立民間非官方的政策溝通渠道，透過學術與文化的力量，消弭地域隔閡，共創東亞繁榮穩定。</p>
-</section>
+<div id="Home" class="tab-content active">
+    <section class="hero">
+        <h1>以文化連結政治，推動兩岸長久和平</h1>
+        <p>致力於建立民間非官方的政策溝通渠道，透過學術與文化的力量，消弭地域隔閡，共創東亞繁榮穩定。</p>
+    </section>
+    <section class="section-padding">
+        <h2>核心議題</h2>
+        <div class="grid">
+            <div class="area-card">
+                <h3>政經趨勢研究</h3>
+                <p>分析地緣變遷對供應鏈的影響，提供跨區域企業非公開的風險評估報告。</p>
+            </div>
+            <div class="area-card">
+                <h3>兩岸文教融合</h3>
+                <p>促進學術與藝術人員之間高水平交流，深化雙方在精神層面的連結。</p>
+            </div>
+            <div class="area-card">
+                <h3>民間和平對話</h3>
+                <p>建立第三方中立平台，推動非官方、閉門式的政策探討與對話。</p>
+            </div>
+        </div>
+    </section>
+</div>
 
-<section id="about" class="mission">
-    <h2>關於我們 / 協會宗旨</h2>
-    <p>「東亞文政和平協會」成立於 2024 年，推進並建立民間非政黨方的政策溝通渠道，透過學術及文化交流，維持兩岸關係穩定、避免誤判。本會專注於政策研究、文化交流及民間信任機制的建立。</p>
-</section>
+<div id="About" class="tab-content">
+    <section class="section-padding" style="max-width: 800px; margin: auto; text-align: center;">
+        <h2>協會宗旨</h2>
+        <p style="font-size: 1.1rem; color: #555; text-align: justify;">「東亞文政和平協會」成立於 2024 年，由多位關心亞太局勢之中部企業家與學術界人士共同發起。我們深信，在複雜的國際局勢下，民間的「文政對話」是維持兩岸關係穩定、避免誤判的最重要基石。</p>
+        <p style="font-size: 1.1rem; color: #555; text-align: justify;">本會拒絕任何極端政治意識形態，專注於務實的政策研究、文化交流及民間信任機制的建立。我們作為「避震器」，在官方渠道受阻時，持續為兩岸和平尋找解方。</p>
+    </section>
+</div>
 
-<section id="focus" class="focus-areas">
-    <h2>核心議題</h2>
-    <div class="grid">
-        <div class="area-card">
-            <h3>政經趨勢研究</h3>
-            <p>分析地緣變遷對供應鏈的影響，提供跨區域企業非公開的風險評估報告。</p>
+<div id="Projects" class="tab-content">
+    <section class="section-padding" style="max-width: 900px; margin: auto;">
+        <h2>2026 年度重點推進專案</h2>
+        <div class="project-box">
+            <span class="project-status">籌備中 / 尋求地方合作</span>
+            <h3 style="color: var(--primary-navy); font-size: 1.5rem; margin-top: 0;">「波瀾同源」— 東亞水神文化溯源與和平機制計畫</h3>
+            <p><strong>專案背景：</strong> 鑑於台灣在歷史上與跨海貿易、水神信仰之深厚淵源，本計畫擬透過「民間祖廟溯源」之形式，重啟兩岸宗教文化之高層次對話。</p>
+            <p><strong>執行目標：</strong> 尋求與台灣具備指標性之百年廟宇合作，由本會提撥專案文化基金，共同籌組赴對岸之非官方學術與進香考察團。</p>
+            <p><strong>負責窗口：</strong> 秘書處業務經理 林逸光</p>
         </div>
-        <div class="area-card">
-            <h3>兩岸文教融合</h3>
-            <p>促進學術與藝術人員之間高水平交流，深化雙方在精神層面的連結。</p>
+        <div class="project-box">
+            <span class="project-status">執行中 (閉門)</span>
+            <h3 style="color: var(--primary-navy); font-size: 1.5rem; margin-top: 0;">長三角與竹科產業鏈變遷閉門沙龍</h3>
+            <p>邀請兩岸半導體與精密機械之企業領袖，進行無紀錄、非公開之風險應對座談。</p>
         </div>
-        <div class="area-card">
-            <h3>民間和平對話</h3>
-            <p>建立第三方中立平台，推動非官方、閉門式的政策探討與對話。</p>
+    </section>
+</div>
+
+<div id="Insights" class="tab-content">
+    <section class="section-padding" style="max-width: 900px; margin: auto;">
+        <h2>內參報告與出版品</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">本會定期發布東亞政經與社會觀察報告。部分文件涉及敏感政策評估，僅供內部會員及顧問調閱。</p>
+        
+        <div class="report-item">
+            <span class="project-status locked-status">🔒 顧問限閱 (機密等級：高)</span>
+            <h4>2025-2026 後疫情時代兩岸民間宗教交流之對接窗口變遷分析</h4>
+            <p>摘要：本報告詳細梳理對岸各省份「台辦系統」與「宗教局」之職權轉換，並評估台灣宮廟在交流過程中可能面臨之合規性風險與資金查核趨勢。</p>
         </div>
-    </div>
-</section>
+        <div class="report-item">
+            <span class="project-status locked-status">🔒 企業會員限閱</span>
+            <h4>東亞地緣政治衝突下的台商避險與資金調度指南</h4>
+            <p>摘要：針對中部傳產及北部科技業，提供非官方管道的跨境資本流動安全評估。</p>
+        </div>
+        <div class="report-item">
+            <span class="project-status">公開發表</span>
+            <h4>文化軟實力：以「非遺」傳承作為兩岸破冰之可行性研究</h4>
+            <p>摘要：探討如何利用媽祖、水仙尊王等共同信仰，繞過政治爭議，建立常態化的文化論壇機制。</p>
+        </div>
+    </section>
+</div>
+
+<div id="Network" class="tab-content">
+    <section class="section-padding" style="max-width: 900px; margin: auto; text-align: center;">
+        <h2>跨界合作與榮譽顧問網絡</h2>
+        <p style="font-size: 1.1rem; color: #555; text-align: justify; margin-bottom: 30px;">東亞文政和平協會有賴於各界領袖的鼎力支持。我們的網絡涵蓋學術界巨擘、產業界領袖，以及深耕地方、穩定社會基層的文化信仰中心。</p>
+        
+        <div class="area-card" style="text-align: left; background: white; border: 1px solid #ddd; margin-bottom: 20px;">
+            <h3 style="margin-bottom: 10px;">🌟 榮譽顧問委員會 (籌備擴編中)</h3>
+            <p>本會目前正積極邀請具備跨岸影響力、且德高望重之**「地方宗教與文化界領袖」**加入顧問團。榮譽顧問將享有本會最高級別的內參報告調閱權，並優先參與由本會全額贊助之國際與兩岸文化交流專案。</p>
+        </div>
+        
+        <p style="font-size: 0.95rem; color: #888;">（為保護企業會員與顧問隱私，詳細名單不對外公開，僅供實體會議交流。）</p>
+    </section>
+</div>
 
 <footer id="contact">
     <div class="contact-info">
@@ -97,6 +178,24 @@
         © 2026 East Asia Cultural & Political Peace Association. All Rights Reserved.
     </div>
 </footer>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tabbuttons;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+    tabbuttons = document.getElementsByClassName("tab-button");
+    for (i = 0; i < tabbuttons.length; i++) {
+        tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    setTimeout(() => { document.getElementById(tabName).classList.add("active"); }, 10);
+    evt.currentTarget.className += " active";
+}
+</script>
 
 </body>
 </html>
